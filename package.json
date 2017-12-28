@@ -1,0 +1,23 @@
+{
+  "name": "script-oj-answer",
+  "version": "1.0.0",
+  "description": "some answers for scriptoj.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timtimwen/script-oj-answer.git"
+  },
+  "keywords": [],
+  "author": "dayday.wen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timtimwen/script-oj-answer/issues"
+  },
+  "homepage": "https://github.com/timtimwen/script-oj-answer#readme",
+  "dependencies": {
+    "eslint": "^4.14.0"
+  }
+}
