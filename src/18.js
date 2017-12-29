@@ -6,6 +6,7 @@
  */
 
 /*
+ *  普通实现
  *  1. 判断数据类型
  *  2. 转换成字符串类型
  *  3. 以`.`进行分割
@@ -18,65 +19,26 @@
  * 
  */
 
-// first answer
+// for basic api
 function commafy(num) {
-  if (typeof num !== 'number') {
-    return ''
-  }
-  var numStrings = num.toString().split('.')
-  var integer = numStrings[0]
-  var reversedIntegers = []
-  for (var i = 0; i < integer.length; i++) {
-    reversedIntegers.unshift(integer.charAt(i))
-  }
-  var newIntegers = []
-  reversedIntegers.forEach(function (val, index) {
-    newIntegers.unshift(val)
-    if ((index + 1) % 3 === 0) {
-      newIntegers.unshift(',')
+  var numArr = num.toString().split('.')
+  var reversedIntegerArr = numArr[0].split('').reverse()
+  var newIntegerArr = []
+  for (var i = 0; i < reversedIntegerArr.length; i++) {
+    newIntegerArr.unshift(reversedIntegerArr[i])
+    if ((i + 1) % 3 === 0) {
+      newIntegerArr.unshift(',')
     }
-  })
-  if (newIntegers[0] === ',') {
-    newIntegers.shift(0)
   }
-  if (newIntegers[0] === '-' && newIntegers[1] === ',') {
-    newIntegers.splice(1, 1)
+  if (newIntegerArr[0] === ',') {
+    newIntegerArr.shift(0)
   }
-  var newInteger = newIntegers.join('')
-  numStrings[0] = newInteger
-  return numStrings.join('.')
-}
-
-// second answer
-// TODO
-function commafy2(num) {
-  if (typeof num !== 'number') {
-    return ''
+  if (newIntegerArr[0] === '-' && newIntegerArr[1] === ',') {
+    newIntegerArr.splice(1, 1)
   }
-  var numStrings = num.toString().split('.')
-  var integerArr = numStrings[0].split('')
-  // var reversedIntegers = []
-  var reversedIntegerArr = integerArr.reverse()
-  // for (var i = 0; i < integer.length; i++) {
-  //   reversedIntegers.unshift(integer.charAt(i))
-  // }
-  var newIntegers = []
-  reversedIntegers.forEach(function (val, index) {
-    newIntegers.unshift(val)
-    if ((index + 1) % 3 === 0) {
-      newIntegers.unshift(',')
-    }
-  })
-  if (newIntegers[0] === ',') {
-    newIntegers.shift(0)
-  }
-  if (newIntegers[0] === '-' && newIntegers[1] === ',') {
-    newIntegers.splice(1, 1)
-  }
-  var newInteger = newIntegers.join('')
-  numStrings[0] = newInteger
-  return numStrings.join('.')
+  numArr[0] = newIntegerArr.join('')
+  return numArr.join('.')
 }
 
 // var numString = commafy(-100000)
-console.log(commafy(-100000))
+console.log(commafy(-103470000.23))
