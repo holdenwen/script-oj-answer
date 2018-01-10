@@ -19,7 +19,7 @@
  * 
  */
 
-// for basic api
+// for basic
 function commafy(num) {
   var numArr = num.toString().split('.')
   var reversedIntegerArr = numArr[0].split('').reverse()
@@ -39,6 +39,10 @@ function commafy(num) {
   numArr[0] = newIntegerArr.join('')
   return numArr.join('.')
 }
+
+// for es6
+
+// for regular expression
 
 // var numString = commafy(-100000)
 console.log(commafy(-103470000.23))
